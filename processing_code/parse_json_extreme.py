@@ -152,7 +152,22 @@ with open(fileN, 'r') as f:
             tweet_coordinates_coordinates=str(tweet["coordinates"]["coordinates"])
         except:
             tweet_coordinates_coordinates='NULL'
-        objectString = tweet_created_at + "\t" + tweet_id + "\t" + tweet_id_str + "\t" + tweet_text + "\t" + tweet_truncated + "\t" + tweet_source + "\t" + tweet_in_reply_to_status_id + "\t" + tweet_in_reply_to_status_id_str + "\t" + tweet_in_reply_to_user_id + "\t" + tweet_in_reply_to_user_id_str + "\t" + tweet_in_reply_to_screen_name + "\t" + tweet_geo + "\t" + tweet_coordinates + "\t" + tweet_place + "\t" + tweet_contributors + "\t" + tweet_user_id + "\t" + tweet_user_id_str + "\t" + tweet_user_name + "\t" + tweet_user_screen_name + "\t" + tweet_user_location + "\t" + tweet_user_description + "\t" + tweet_place_id + "\t" + tweet_place_url + "\t" + tweet_place_place_type + "\t" + tweet_place_name + "\t" + tweet_place_full_name + "\t" + tweet_place_country_code + "\t" + tweet_place_country + "\t" + tweet_place_contained_within + "\t" + tweet_place_bounding_box_type + "\t" + tweet_place_bounding_box_coordinates + "\t" + tweet_geo_type + "\t" + tweet_geo_coordinates + "\t" + tweet_coordinates_type + "\t" + tweet_coordinates_coordinates 
+            
+    ### added retweet_count and favorite_count
+        try:
+            retweet_count=str(tweet["retweet_count"])
+        except:
+            retweet_count='NULL'
+
+        try:
+            favorite_count=str(tweet["favorite_count"])
+        except:
+            favorite_count='NULL'
+
+###
+
+
+        objectString = tweet_created_at + "\t" + tweet_id + "\t" + tweet_id_str + "\t" + tweet_text + "\t" + tweet_truncated + "\t" + tweet_source + "\t" + tweet_in_reply_to_status_id + "\t" + tweet_in_reply_to_status_id_str + "\t" + tweet_in_reply_to_user_id + "\t" + tweet_in_reply_to_user_id_str + "\t" + tweet_in_reply_to_screen_name + "\t" + tweet_geo + "\t" + tweet_coordinates + "\t" + tweet_place + "\t" + tweet_contributors + "\t" + tweet_user_id + "\t" + tweet_user_id_str + "\t" + tweet_user_name + "\t" + tweet_user_screen_name + "\t" + tweet_user_location + "\t" + tweet_user_description + "\t" + tweet_place_id + "\t" + tweet_place_url + "\t" + tweet_place_place_type + "\t" + tweet_place_name + "\t" + tweet_place_full_name + "\t" + tweet_place_country_code + "\t" + tweet_place_country + "\t" + tweet_place_contained_within + "\t" + tweet_place_bounding_box_type + "\t" + tweet_place_bounding_box_coordinates + "\t" + tweet_geo_type + "\t" + tweet_geo_coordinates + "\t" + tweet_coordinates_type + "\t" + tweet_coordinates_coordinates + "\t" + retweet_count + "\t" + favorite_count 
         objectString = objectString.replace('\n','')
         objectString = objectString.replace('\r','')		
         fO.write(objectString + "\n")
